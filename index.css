@@ -61,10 +61,11 @@
     color: var(--text-color);
     width: 445px;
     height: 380px;
-    padding: 52px;
+    padding: 75px 52px;
     display: flex;
     flex-direction: column;
     align-items:start;
+    margin: 25px;
 }
 
 .passwords {
@@ -88,7 +89,7 @@ button {
     border: none;
     padding: 10px 20px;
     border-radius: 5px;
-    margin: 20px 0;
+    margin-top: 25px;
     font-weight: bold;
 }
 
@@ -106,6 +107,8 @@ p {
 
 hr {
     width: 100%;
+    margin-top: 30px;
+    border: .5px solid;
 }
 
 input {
