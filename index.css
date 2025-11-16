@@ -1,3 +1,25 @@
+/* Light mode (default) */
+:root {
+    --background-color: #ECFDF5;
+    --text-color: #6B7280;
+}
+
+:root h1 {
+    color: #1C1C1C;
+}
+
+/* Dark mode styles */
+.dark-theme {
+    --background-color: #1F2937;
+    --text-color: #D5D4D8;
+}
+
+.dark-theme h1 {
+    color: white;
+}
+
 body {
+    background-color: var(--background-color);
+    color: var(--text-color);
     margin: 0;
 }
