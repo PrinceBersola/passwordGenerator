@@ -1,4 +1,4 @@
-let characters = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9","~","`","!","@","#","$","%","^","&","*","(",")","_","-","+","=","{","[","}","]",",","|",":",";","<",">",".","?",
+const charactersAll = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9","~","`","!","@","#","$","%","^","&","*","(",")","_","-","+","=","{","[","}","]",",","|",":",";","<",">",".","?",
 "/"];
 const charactersWithoutSymbols = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 const charactersWithoutNumbers = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z", "~","`","!","@","#","$","%","^","&","*","(",")","_","-","+","=","{","[","}","]",",","|",":",";","<",">",".","? ","/"];
@@ -12,22 +12,23 @@ const lengthInput = document.getElementById('length-input');
 const symbolsBox = document.getElementById('symbols-box');
 const numbersBox = document.getElementById('numbers-box');
 const passwordLength = document.getElementById('length-input').value;
+let characters = charactersAll;
 
 // initial check for checkboxes
 function passwordContents() {
   if (!symbolsBox.checked && !numbersBox.checked) {
     characters = charactersOnlyLetters;
-} else if (!symbolsBox.checked) {
+} else if (!symbolsBox.checked && numbersBox.checked) {
     characters = charactersWithoutSymbols;
-} else if (!numbersBox.checked) {
+} else if (!numbersBox.checked && symbolsBox.checked) {
     characters = charactersWithoutNumbers;
 } else {
-    characters = characters;
+    characters = charactersAll;
 }}
 
 // event listeners for checkboxes
-symbolsBox.addEventListener('change', passwordContents);
-numbersBox.addEventListener('change', passwordContents);
+symbolsBox.addEventListener('input', passwordContents);
+numbersBox.addEventListener('input', passwordContents); 
 
 generateBtn.addEventListener('click', () => {
     const length = parseInt(lengthInput.value) || passwordLength;
