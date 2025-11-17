@@ -12,13 +12,37 @@
             <br>
             <span>random password</span></h1>
             <p>Never use an insecure password again.</p>
-            <button id="generate">Generate passwords</button>
+
+            <!-- button and password composition -->
+            <button id="generate-btn">Generate passwords</button>
+            <section class="composition">
+                <label for="length-input">
+                <input type="number" id="length-input" min="4" max="15" value="15"> Password Length (4-15)</label>
+                <label for="symbols-box">
+                <input type="checkbox" id="symbols-box" checked> Symbols (ex: !, @, #, $)</label>
+                <label for="numbers-box">
+                <input type="checkbox" id="numbers-box" checked> Numbers (0-9)</label>
+            </section>
+
             <hr>
+            <label for="passwords">Passwords:</label>
             <div class="passwords">
-                <input id="passwords1"></input>
-                <input id="passwords2"></input>
+                <input id="password1" placeholder="P4$$w0rd-1"></input>
+                <input id="password2" placeholder="p455w0rD_2"></input>
             </div>
         </div>
         <script src="index.js"></script>
     </body>
 </html>
+
+<!-- Requirements:
+ 1. build from "scratch"
+ 2. generate two random passwords when the user clicks the button
+ 3. each password should be 15 characters long
+-->
+
+<!-- STRETCH GOALS:
+ 1. Ability to set password length
+ 2. Add "copy-on-click"
+ 3. Toggle "symbols" and "numbers" on/off
+-->
